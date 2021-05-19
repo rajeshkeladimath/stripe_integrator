@@ -1,13 +1,12 @@
 <?php
 
-//require_once("/mnt/storage/drupal8/htdocs/libraries/stripe-php-master/init.php");
-require_once("/mnt/storage/distributions/drupal8_common_folders/drupal8_libraries/stripe-php-master/init.php");
+require_once("/usr/src/app/libraries/stripe-php-master/init.php");
 Class StripeInterface
 {
 
   private static $stripeInterface = NULL;
  
-  private static  $apiKey = null;//'sk_test_gulYvBIFzllt4JMUQ1wyYZCb';
+  private static  $apiKey = null;
 
   public function __construct()
   {
