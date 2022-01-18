@@ -1,6 +1,7 @@
 <?php
 
-require_once("/usr/src/app/libraries/stripe-php-master/init.php");
+require_once($_SERVER["DOCUMENT_ROOT"] ."/libraries/stripe-php-master/init.php");
+
 Class StripeInterface
 {
 
