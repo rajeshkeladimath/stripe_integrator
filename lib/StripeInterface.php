@@ -214,7 +214,8 @@ Class StripeInterface
       } catch(\Stripe\Error\Base $e) {
         // Since it's a decline, \Stripe\Error\Card will be caught
         $body = $e->getJsonBody();
-    drupal_set_message($e->getMessage());
+	//    drupal_set_message($e->getMessage());
+	\Drupal::messenger()->addMessage($e->getMessage());
         $err  = $body['error'];
         print('Status is:' . $e->getHttpStatus() . "\n");
         print('Type is:' . $err['type'] . "\n");
