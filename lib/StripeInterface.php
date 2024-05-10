@@ -38,13 +38,15 @@ Class StripeInterface
       $err  = $body['error'];
       if($err != NULL && strlen($err['message']) > 0)
       {
-        drupal_set_message($err['message'], 'warning');
+	//drupal_set_message($err['message'], 'warning');
+	\Drupal::messenger()->addWarning($e->getMessage());
       }
       return NULL;
     }
     catch (Exception $e)
     {
-      drupal_set_message(t('We are sorry. There was an error storing your '.$source['source']['base'].' right now'), 'warning');
+      //drupal_set_message(t('We are sorry. There was an error storing your '.$source['source']['base'].' right now'), 'warning');
+      \Drupal::messenger()->addWarning('We are sorry. There was an error storing your '.$source['source']['base'].' right now');
       return NULL;
     } 
 
@@ -68,16 +70,20 @@ Class StripeInterface
     catch (\Stripe\Error\Base $e) {
       $body = $e->getJsonBody();
       $err  = $body['error'];
-  drupal_set_message("cusotm error " .$e->getMessage());
+  //drupal_set_message("cusotm error " .$e->getMessage());
+    \Drupal::messenger()->addMessage("cusotm error " .$e->getMessage());
+
       if($err != NULL && strlen($err['message']) > 0)
       {
-        drupal_set_message($err['message'], 'warning');
+	//drupal_set_message($err['message'], 'warning');
+	\Drupal::messenger()->addWarning($e->getMessage());
       }
       return NULL;
     }
     catch (Exception $e)
     {
-      drupal_set_message(t('We are sorry. There was an error storing your '.$source['source']['base'].' right now'), 'warning');
+      //drupal_set_message(t('We are sorry. There was an error storing your '.$source['source']['base'].' right now'), 'warning');
+      \Drupal::messenger()->addWarning('We are sorry. There was an error storing your '.$source['source']['base'].' right now');
       return NULL;
     }
 
@@ -105,13 +111,15 @@ Class StripeInterface
       $err  = $body['error'];
       if($err != NULL && strlen($err['message']) > 0)
       {
-        drupal_set_message($err['message'], 'warning');
+	      //drupal_set_message($err['message'], 'warning');
+	      \Drupal::messenger()->addWarning($e->getMessage());
       }
       return NULL;
     }
     catch (Exception $e)
     {
-      drupal_set_message(t('We are sorry. There was an error setting recurring payment right now'), 'warning');
+	      //drupal_set_message(t('We are sorry. There was an error setting recurring payment right now'), 'warning');
+	      \Drupal::messenger()->addWarning('We are sorry. There was an error setting recurring payment right now');
       return NULL;
     } 
 
@@ -135,13 +143,15 @@ Class StripeInterface
       $err  = $body['error'];
       if($err != NULL && strlen($err['message']) > 0)
       {
-        drupal_set_message($err['message'], 'warning');
+	//drupal_set_message($err['message'], 'warning');
+	\Drupal::messenger()->addWarning($e->getMessage());
       }
       return NULL;
     }
     catch (Exception $e)
     {
-      drupal_set_message(t('We are sorry. There was an error setting recurring payment right now'), 'warning');
+	//drupal_set_message(t('We are sorry. There was an error setting recurring payment right now'), 'warning');
+	\Drupal::messenger()->addWarning('We are sorry. There was an error setting recurring payment right now');
       return NULL;
     } 
   }
@@ -165,7 +175,8 @@ Class StripeInterface
      }
      catch (Exception $e)
      {
-       drupal_set_message(t('We are sorry. There was an error deleting the entry right now'), 'warning');
+	//drupal_set_message(t('We are sorry. There was an error deleting the entry right now'), 'warning');
+	\Drupal::messenger()->addWarning('We are sorry. There was an error deleting the entry right now');
        return FALSE;
      } 
 
@@ -194,7 +205,8 @@ Class StripeInterface
      }
      catch (Exception $e)
      {
-       drupal_set_message(t('We are sorry. There was an error deleting the entry right now'), 'warning');
+	//drupal_set_message(t('We are sorry. There was an error deleting the entry right now'), 'warning');
+	\Drupal::messenger()->addWarning('We are sorry. There was an error deleting the entry right now');
        return FALSE;
      } 
 
@@ -268,13 +280,15 @@ Class StripeInterface
         $err  = $body['error'];
         if($err != NULL && strlen($err['message']) > 0)
         {
-          drupal_set_message($err['message'], 'warning');
+	//drupal_set_message($err['message'], 'warning');
+	\Drupal::messenger()->addWarning($e->getMessage());
         }
         $status = FALSE;
       }
       catch (Exception $e)
       {
-        drupal_set_message(t('We are sorry. There was an error storing your '.$source['source']['base'].' right now'), 'warning');
+      //drupal_set_message(t('We are sorry. There was an error storing your '.$source['source']['base'].' right now'), 'warning');
+      \Drupal::messenger()->addWarning('We are sorry. There was an error storing your '.$source['source']['base'].' right now');
         $status = FALSE;
       } 
       return $status;
@@ -344,7 +358,8 @@ return $e;
     }
     catch(Exception $e)
     {
-      drupal_set_message(t('We are sorry. There was an error processing your transaction right now'), 'warning');
+	//drupal_set_message(t('We are sorry. There was an error processing your transaction right now'), 'warning');
+	\Drupal::messenger()->addWarning('WWe are sorry. There was an error processing your transaction right now');
       return FALSE;
     }
   }
@@ -367,7 +382,8 @@ return $e;
     }
     catch(Exception $e)
     {
-      drupal_set_message(t('We are sorry. Could not verify your account right now.'), 'warning');
+	//drupal_set_message(t('We are sorry. Could not verify your account right now.'), 'warning');
+	\Drupal::messenger()->addWarning('We are sorry. Could not verify your account right now');
       return FALSE;
     }
   }
